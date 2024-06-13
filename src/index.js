@@ -162,7 +162,7 @@ app.use("/api/daily-cash", DailyCashRoutes);
 const ExcelRoutes = require("./routes/excel_routes");
 app.use("/api/excel", ExcelRoutes);
 
-const PORT = 4567;
+const PORT = 9000;
 app.listen(PORT, () => console.log(`Server started at PORT: ${PORT}`));
 
 // const httpsServer = https.createServer(cred, app);
