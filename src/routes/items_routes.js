@@ -20,6 +20,12 @@ router.get("/get-items", ItemsController.fetchAllItems);
 // Get a specific item by ID
 router.get("/get-item/:itemId", verifyToken, ItemsController.getItemById);
 
+// Get item by brand and category
+router.get(
+  "/get-item-by-brand-category/:brand/:group",
+  ItemsController.getItemByBrandAndGroup
+);
+
 // Get a items by Category
 router.get("/get-items-by-group/:category", ItemsController.getItemsByGroup);
 

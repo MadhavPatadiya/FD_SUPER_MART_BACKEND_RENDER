@@ -20,14 +20,12 @@ const createItem = async (req, res) => {
   }
 };
 
-const fetchAllItems = async  (req, res)=> {
+const fetchAllItems = async (req, res) => {
   try {
-      const item = await Items.find();
-      return res.json({ success: true, data: item });
-  }
-  catch (ex) {
-      return res.json({ success: false, message: ex });
-
+    const item = await Items.find();
+    return res.json({ success: true, data: item });
+  } catch (ex) {
+    return res.json({ success: false, message: ex });
   }
 };
 
@@ -67,6 +65,18 @@ const getItemById = async (req, res) => {
     } else {
       res.json({ success: false, message: "Item not found" });
     }
+  } catch (ex) {
+    res.json({ success: false, message: ex });
+  }
+};
+
+//  Get item by brand & group
+
+const getItemByBrandAndGroup = async (req, res) => {
+  try {
+    const { brand, group } = req.params;
+    const items = await Items.find({ itemBrand: brand, itemGroup: group });
+    res.json({ success: true, data: items });
   } catch (ex) {
     res.json({ success: false, message: ex });
   }
@@ -415,4 +425,5 @@ module.exports = {
   updateAllItems,
   getBrandsByGroup,
   fetchAllItems,
+  getItemByBrandAndGroup
 };
