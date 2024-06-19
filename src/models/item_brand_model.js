@@ -5,22 +5,11 @@ const ItemsBrandSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  images: [
-    {
-      data: {
-        type: Buffer,
-        required: true,
-      },
-      contentType: {
-        type: String,
-        required: true,
-      },
-      filename: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  images: {
+    type: String,
+    required: false,
+    default: "",
+  },
   createdAt: {
     type: Date,
     required: true,

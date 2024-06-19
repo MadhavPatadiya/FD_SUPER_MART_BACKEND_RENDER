@@ -4,14 +4,14 @@ const createItem = async (req, res) => {
   try {
     const newItemData = req.body;
 
-    // Handle image data if present
-    if (newItemData.images && newItemData.images.length > 0) {
-      newItemData.images = newItemData.images.map((image) => ({
-        data: Buffer.from(image.data, "base64"),
-        contentType: image.contentType,
-        filename: image.filename,
-      }));
-    }
+    // // Handle image data if present
+    // if (newItemData.images && newItemData.images.length > 0) {
+    //   newItemData.images = newItemData.images.map((image) => ({
+    //     data: Buffer.from(image.data, "base64"),
+    //     contentType: image.contentType,
+    //     filename: image.filename,
+    //   }));
+    // }
 
     const newItem = await Items.create(newItemData);
     res.json({ success: true, data: newItem });
@@ -32,7 +32,7 @@ const fetchAllItems = async (req, res) => {
 const getItems = async (req, res) => {
   try {
     let page = parseInt(req.query.page) || 1;
-    let limit = parseInt(req.query.limit) || 50;
+    let limit = parseInt(req.query.limit) || 120;
 
     // Get companyCode from params
     const { companyCode } = req.params;
@@ -115,14 +115,14 @@ const updateItem = async (req, res) => {
   try {
     const newItemData = req.body;
 
-    // Handle image data if present
-    if (newItemData.images && newItemData.images.length > 0) {
-      newItemData.images = newItemData.images.map((image) => ({
-        data: Buffer.from(image.data, "base64"),
-        contentType: image.contentType,
-        filename: image.filename,
-      }));
-    }
+    // // Handle image data if present
+    // if (newItemData.images && newItemData.images.length > 0) {
+    //   newItemData.images = newItemData.images.map((image) => ({
+    //     data: Buffer.from(image.data, "base64"),
+    //     contentType: image.contentType,
+    //     filename: image.filename,
+    //   }));
+    // }
 
     const updatedItem = await Items.findByIdAndUpdate(
       req.params.itemId, // Removed unnecessary curly braces

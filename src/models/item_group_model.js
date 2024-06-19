@@ -9,22 +9,11 @@ const ItemsGroupSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  images: [
-    {
-      data: {
-        type: Buffer,
-        required: false,
-      },
-      contentType: {
-        type: String,
-        required: false,
-      },
-      filename: {
-        type: String,
-        required: false,
-      },
-    },
-  ],
+  images: {
+    type: String,
+    required: false,
+    default: "",
+  },
   createdAt: {
     type: Date,
     required: true,

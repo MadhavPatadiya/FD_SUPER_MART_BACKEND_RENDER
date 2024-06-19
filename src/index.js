@@ -36,7 +36,7 @@ mongoose
     // "mongodb+srv://billingspherefuerte:VhjtujqeZDbYvn6o@billingsphere.sg7iac6.mongodb.net/billingSphere?retryWrites=true&w=majority"
     // "mongodb+srv://billingspherefuerte:ezMcxwF01Wk2Gv2C@cluster0.e4gsqkd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     // "mongodb://fdsupermartbd:fuerteretail1313@35.154.157.177:27017/?authSource=test"
-    "mongodb+srv://billingspherefuerte:F7rmAr8Hi16eJzIT@cluster0.h72wruh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    "mongodb://fdsupermartadmindb:fdsupermartadmin1313@15.206.104.143/?authSource=test"
   )
   .then(() => {
     console.log("Connected to database");

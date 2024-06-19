@@ -9,7 +9,7 @@ const verifyToken = require("../middleware/verifyToken");
 router.post(
   "/create-item",
   verifyToken,
-  upload.single("image"),
+  // upload.single("image"),
   ItemsController.createItem
 );
 

@@ -4,14 +4,14 @@ const createItemGroup = async (req, res) => {
   try {
     const newItemData = req.body;
 
-    // Handle image data if present
-    if (newItemData.images && newItemData.images.length > 0) {
-      newItemData.images = newItemData.images.map((image) => ({
-        data: Buffer.from(image.data, "base64"),
-        contentType: image.contentType,
-        filename: image.filename,
-      }));
-    }
+    // // Handle image data if present
+    // if (newItemData.images && newItemData.images.length > 0) {
+    //   newItemData.images = newItemData.images.map((image) => ({
+    //     data: Buffer.from(image.data, "base64"),
+    //     contentType: image.contentType,
+    //     filename: image.filename,
+    //   }));
+    // }
 
     const newItem = await ItemsGroup.create(newItemData);
     res.json({ success: true, data: newItem });
@@ -45,13 +45,13 @@ const getItemGroupById = async (req, res) => {
 const updateItemGroup = async (req, res) => {
   try {
 
-    if (req.body.images && req.body.images.length > 0) {
-      req.body.images = req.body.images.map((image) => ({
-        data: Buffer.from(image.data, "base64"),
-        contentType: image.contentType,
-        filename: image.filename,
-      }));
-    }
+    // if (req.body.images && req.body.images.length > 0) {
+    //   req.body.images = req.body.images.map((image) => ({
+    //     data: Buffer.from(image.data, "base64"),
+    //     contentType: image.contentType,
+    //     filename: image.filename,
+    //   }));
+    // }
     const updatedItemGroup = await ItemsGroup.findByIdAndUpdate(
       req.params.itemGroupId,
       req.body,

@@ -5,13 +5,13 @@ const createItemGroup = async (req, res) => {
   try {
     const newItemData = req.body;
 
-    if (newItemData.images && newItemData.images.length > 0) {
-      newItemData.images = newItemData.images.map((image) => ({
-        data: Buffer.from(image.data, "base64"),
-        contentType: image.contentType,
-        filename: image.filename,
-      }));
-    }
+    // if (newItemData.images && newItemData.images.length > 0) {
+    //   newItemData.images = newItemData.images.map((image) => ({
+    //     data: Buffer.from(image.data, "base64"),
+    //     contentType: image.contentType,
+    //     filename: image.filename,
+    //   }));
+    // }
 
     const newItemGroup = await ItemsBrand.create(newItemData);
 
@@ -46,13 +46,13 @@ const getItemGroupById = async (req, res) => {
 const updateItemGroup = async (req, res) => {
   try {
     // Take care of image data
-    if (req.body.images && req.body.images.length > 0) {
-      req.body.images = req.body.images.map((image) => ({
-        data: Buffer.from(image.data, "base64"),
-        contentType: image.contentType,
-        filename: image.filename,
-      }));
-    }
+    // if (req.body.images && req.body.images.length > 0) {
+    //   req.body.images = req.body.images.map((image) => ({
+    //     data: Buffer.from(image.data, "base64"),
+    //     contentType: image.contentType,
+    //     filename: image.filename,
+    //   }));
+    // }
 
     const updatedItemGroup = await ItemsBrand.findByIdAndUpdate(
       req.params.itemGroupId,
