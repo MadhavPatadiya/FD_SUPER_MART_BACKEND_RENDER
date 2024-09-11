@@ -95,6 +95,12 @@ const ItemsSchema = new mongoose.Schema({
     required: false,
     default: "",
   },
+  discountAmount: {
+    type: Number,
+    required: false,
+    default: "",
+  },
+
   price: {
     type: Number,
     required: false,
@@ -110,11 +116,40 @@ const ItemsSchema = new mongoose.Schema({
     required: false,
     default: "",
   },
+
   images: {
-    type: String,
+    type: [String],
     required: false,
-    default: "",
+    default: [],
   },
+  productMetadata: {
+    overview: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    features: {
+      type: [String],
+      required: false,
+      default: [],
+    },
+    ingredients: {
+      type: [String],
+      required: false,
+      default: [],
+    },
+    benefits: {
+      type: [String],
+      required: false,
+      default: [],
+    },
+  },
+
+  // description: {
+  //   type: String,
+  //   required: false,
+  //   default: "",
+  // },
   createdAt: {
     type: Date,
     required: false,

@@ -413,6 +413,18 @@ async function insertItemsIntoDB(req, res, next) {
   }
 }
 
+// Get items and filter by the itenName passed from the params
+
+const getItemsByItemName = async (req, res) => {
+  try {
+    const { itemName } = req.params;
+    const items = await Items.find({ itemName: itemName });
+    res.json({ success: true, data: items });
+  } catch (ex) {
+    res.json({ success: false, message: ex });
+  }
+};
+
 module.exports = {
   createItem,
   getItems,
@@ -425,5 +437,6 @@ module.exports = {
   updateAllItems,
   getBrandsByGroup,
   fetchAllItems,
-  getItemByBrandAndGroup
+  getItemByBrandAndGroup,
+  getItemsByItemName
 };

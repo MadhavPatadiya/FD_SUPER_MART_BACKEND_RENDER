@@ -25,26 +25,18 @@ app.get("/", (req, res) => {
 //   cert,
 // }
 
-
 // src\index.js
-
 
 mongoose
   .connect(
-    // "mongodb://13.60.61.193:27017/BillingSphere2"
-    // "mongodb+srv://johngospel003:LlJ6bdJ35zCzc53O@cluster0.efot3tr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-    // "mongodb+srv://billingspherefuerte:VhjtujqeZDbYvn6o@billingsphere.sg7iac6.mongodb.net/billingSphere?retryWrites=true&w=majority"
-    // "mongodb+srv://billingspherefuerte:ezMcxwF01Wk2Gv2C@cluster0.e4gsqkd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-    // "mongodb://fdsupermartbd:fuerteretail1313@35.154.157.177:27017/?authSource=test"
     "mongodb://fdsupermartadmindb:fdsupermartadmin1313@15.206.104.143/?authSource=test"
   )
   .then(() => {
-    console.log("Connected to database");
+    console.log("Connected to database.");
   });
 
-
-app.get('/', (res, req) => {
-  res.send("Hello World")
+app.get("/", (res, req) => {
+  res.send("Hello World");
 });
 
 //Routes for creating User
@@ -170,4 +162,3 @@ app.listen(PORT, () => console.log(`Server started at PORT: ${PORT}`));
 // httpsServer.listen(8443, () => {
 //   console.log("HTTPS Server running on port 443");
 // });
-
